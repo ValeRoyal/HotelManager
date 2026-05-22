@@ -2,6 +2,7 @@ package com.acm.service;
 
 import com.acm.entity.Habitacion;
 import com.acm.repository.HabitacionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -11,11 +12,8 @@ import java.util.List;
 @Service
 public class HabitacionService {
 
-    private final HabitacionRepository habitacionRepository;
-
-    public HabitacionService(HabitacionRepository habitacionRepository) {
-        this.habitacionRepository = habitacionRepository;
-    }
+    @Autowired
+    private HabitacionRepository habitacionRepository;
 
     public Habitacion create(Habitacion habitacion) {
         return habitacionRepository.save(habitacion);

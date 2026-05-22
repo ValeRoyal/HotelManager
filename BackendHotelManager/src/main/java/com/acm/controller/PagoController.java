@@ -2,6 +2,7 @@ package com.acm.controller;
 
 import com.acm.entity.Pago;
 import com.acm.service.PagoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +12,8 @@ import java.util.List;
 @RequestMapping("/api/pagos")
 public class PagoController {
 
-    private final PagoService pagoService;
-
-    public PagoController(PagoService pagoService) {
-        this.pagoService = pagoService;
-    }
+    @Autowired
+    private PagoService pagoService;
 
     @GetMapping
     public List<Pago> listAll() {

@@ -2,6 +2,7 @@ package com.acm.service;
 
 import com.acm.entity.Hotel;
 import com.acm.repository.HotelRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -11,11 +12,8 @@ import java.util.List;
 @Service
 public class HotelService {
 
-    private final HotelRepository hotelRepository;
-
-    public HotelService(HotelRepository hotelRepository) {
-        this.hotelRepository = hotelRepository;
-    }
+    @Autowired
+    private HotelRepository hotelRepository;
 
     public Hotel create(Hotel hotel) {
         return hotelRepository.save(hotel);

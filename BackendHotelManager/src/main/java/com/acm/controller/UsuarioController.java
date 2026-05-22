@@ -2,6 +2,7 @@ package com.acm.controller;
 
 import com.acm.entity.Usuario;
 import com.acm.service.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +12,8 @@ import java.util.List;
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
 
-    private final UsuarioService usuarioService;
-
-    public UsuarioController(UsuarioService usuarioService) {
-        this.usuarioService = usuarioService;
-    }
+    @Autowired
+    private  UsuarioService usuarioService;
 
     @GetMapping
     public List<Usuario> listAll() {

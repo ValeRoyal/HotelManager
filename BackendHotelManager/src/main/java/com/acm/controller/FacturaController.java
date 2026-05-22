@@ -2,6 +2,7 @@ package com.acm.controller;
 
 import com.acm.entity.Factura;
 import com.acm.service.FacturaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +12,8 @@ import java.util.List;
 @RequestMapping("/api/facturas")
 public class FacturaController {
 
-    private final FacturaService facturaService;
-
-    public FacturaController(FacturaService facturaService) {
-        this.facturaService = facturaService;
-    }
+    @Autowired
+    private FacturaService facturaService;
 
     @GetMapping
     public List<Factura> listAll() {

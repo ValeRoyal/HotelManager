@@ -2,6 +2,7 @@ package com.acm.service;
 
 import com.acm.entity.Pago;
 import com.acm.repository.PagoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -11,11 +12,8 @@ import java.util.List;
 @Service
 public class PagoService {
 
-    private final PagoRepository pagoRepository;
-
-    public PagoService(PagoRepository pagoRepository) {
-        this.pagoRepository = pagoRepository;
-    }
+    @Autowired
+    private  PagoRepository pagoRepository;
 
     public Pago create(Pago pago) {
         return pagoRepository.save(pago);

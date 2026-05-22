@@ -2,6 +2,7 @@ package com.acm.controller;
 
 import com.acm.entity.Servicio;
 import com.acm.service.ServicioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +12,8 @@ import java.util.List;
 @RequestMapping("/api/servicios")
 public class ServicioController {
 
-    private final ServicioService servicioService;
-
-    public ServicioController(ServicioService servicioService) {
-        this.servicioService = servicioService;
-    }
+    @Autowired
+    private ServicioService servicioService;
 
     @GetMapping
     public List<Servicio> listAll() {

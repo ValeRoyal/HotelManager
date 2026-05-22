@@ -2,6 +2,7 @@ package com.acm.controller;
 
 import com.acm.entity.Hotel;
 import com.acm.service.HotelService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +12,8 @@ import java.util.List;
 @RequestMapping("/api/hoteles")
 public class HotelController {
 
-    private final HotelService hotelService;
-
-    public HotelController(HotelService hotelService) {
-        this.hotelService = hotelService;
-    }
+    @Autowired
+    private HotelService hotelService;
 
     @GetMapping
     public List<Hotel> listAll() {

@@ -2,6 +2,7 @@ package com.acm.controller;
 
 import com.acm.entity.Reserva;
 import com.acm.service.ReservaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +12,8 @@ import java.util.List;
 @RequestMapping("/api/reservas")
 public class ReservaController {
 
-    private final ReservaService reservaService;
-
-    public ReservaController(ReservaService reservaService) {
-        this.reservaService = reservaService;
-    }
+    @Autowired
+    private ReservaService reservaService;
 
     @GetMapping
     public List<Reserva> listAll() {

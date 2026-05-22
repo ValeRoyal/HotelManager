@@ -2,6 +2,7 @@ package com.acm.controller;
 
 import com.acm.entity.Habitacion;
 import com.acm.service.HabitacionService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,11 +12,8 @@ import java.util.List;
 @RequestMapping("/api/habitaciones")
 public class HabitacionController {
 
-    private final HabitacionService habitacionService;
-
-    public HabitacionController(HabitacionService habitacionService) {
-        this.habitacionService = habitacionService;
-    }
+    @Autowired
+    private  HabitacionService habitacionService;
 
     @GetMapping
     public List<Habitacion> listAll() {
